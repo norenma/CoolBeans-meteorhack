@@ -19,11 +19,10 @@ Template.sendMessage.events({
         });
 
         Meteor.call('hemtz', "hej", function(err, result){
-            //var audio = new Audio()
-            //audio.src =
-            console.log(result.data);//data.preview_url;
+            var audio = new Audio()
+            audio.src = result.data.preview_url;
             //console.log(track);
-           // track.play();
+            audio.play();
         });
 
 
