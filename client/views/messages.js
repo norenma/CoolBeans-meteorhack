@@ -18,5 +18,12 @@ Template.sendMessage.events({
           timestamp: new Date()
         });
 
+        Meteor.call('hemtz', "hej", function(err, result){
+            var track = result;
+            
+        });
+
+
+
     }
 });

@@ -5,7 +5,8 @@ Template.receivedMessages.helpers({
     }
   },
   user: function() {
-      console.log(Meteor.user().username);
+    if(Meteor.user()){
       return Meteor.users.findOne({_id: this._fromId});
+    }
   }
 });
