@@ -3,30 +3,26 @@ Template.sendMessage.events({
         // We are building an application, so we don't want the form to reload the page.
         event.preventDefault();
 
-        var text = instance.find('#message').value;
-        instance.find('#message').value = '';
-
+        var bestSongEver = '5nNmj1cLH3r4aA4XDJ2bgY'
         var to = instance.find('#toUser').value;
         instance.find('#toUser').value = '';
 
         console.log(Meteor.userId());
 
         Messages.insert({
-          message: text,
+          message: bestSongEver,
           _fromId: Meteor.userId(), // Add userId to each message.
           _toId: to,
           timestamp: new Date()
         });
+    },
 
-        Meteor.call('hemtz', "hej", function(err, result){
-            //var audio = new Audio()
-            //audio.src =
-            console.log(result.data);//data.preview_url;
-            //console.log(track);
-           // track.play();
-        });
-
-
-
+    'click .song': function(event, instance){
+      Meteor.call('hemtz', song, function(err, result){
+          var audio = new Audio()
+          audio.src = result.data.preview_url
+          console.log(result.data.preview_url);//data.preview_url;
+          audio.play();
+      });
     }
 });
