@@ -20,7 +20,7 @@ Template.sendMessage.events({
 
         Meteor.call('hemtz', "hej", function(err, result){
             var track = result;
-            track.
+            
         });
 
 
