@@ -1,5 +1,5 @@
 Template.sendMessage.events({
-    'button click': function (event, instance) {
+    'form submit': function (event, instance) {
         // We are building an application, so we don't want the form to reload the page.
         event.preventDefault();
 
@@ -7,6 +7,8 @@ Template.sendMessage.events({
         instance.find('form').value = '';
 
         Messages.insert({text: text});
+
+        console.log(Meteor.call('hemtz', "hej"));
 
     }
 });
