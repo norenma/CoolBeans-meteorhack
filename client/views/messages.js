@@ -1,14 +1,29 @@
 Template.sendMessage.events({
-    'form submit': function (event, instance) {
+    'submit form': function (event, instance) {
         // We are building an application, so we don't want the form to reload the page.
         event.preventDefault();
 
-        var text = instance.find('form').value;
-        instance.find('form').value = '';
+        var text = instance.find('#message').value;
+        instance.find('#message').value = '';
 
-        Messages.insert({text: text});
+        var to = instance.find('#toUser').value;
+        instance.find('#toUser').value = '';
 
-        console.log(Meteor.call('hemtz', "hej"));
+        console.log(Meteor.userId());
+
+        Messages.insert({
+          message: text,
+          _fromId: Meteor.userId(), // Add userId to each message.
+          _toId: to,
+          timestamp: new Date()
+        });
+
+        Meteor.call('hemtz', "hej", function(err, result){
+            var track = result;
+            track.
+        });
+
+
 
     }
 });

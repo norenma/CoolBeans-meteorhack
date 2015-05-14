@@ -1,0 +1,8 @@
+<template name="receivedMessages">
+  <h1> Received Messages! </h1>
+  <ul>
+    {{#each messages}}
+      <li>{{user.username}}: {{message}}</li>
+    {{/each}}
+  </ul>
+</template>
