@@ -2,7 +2,7 @@
   <h1> Received Messages! </h1>
   <ul>
     {{#each messages}}
-      <li>{{fromUser}}: {{message}}</li>
+      <li>{{user.username}}: {{message}}</li>
     {{/each}}
   </ul>
 </template>
