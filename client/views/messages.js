@@ -15,14 +15,5 @@ Template.sendMessage.events({
           _toId: to,
           timestamp: new Date()
         });
-    },
-
-    'click .song': function(event, instance){
-      Meteor.call('hemtz', song, function(err, result){
-          var audio = new Audio()
-          audio.src = result.data.preview_url
-          console.log(result.data.preview_url);//data.preview_url;
-          audio.play();
-      });
     }
 });

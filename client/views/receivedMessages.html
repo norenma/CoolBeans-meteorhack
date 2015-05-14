@@ -1,8 +1,8 @@
 <template name="receivedMessages">
   <h1> Received Messages! </h1>
-  <ul>
+  <ul class="list-group">
     {{#each messages}}
-      <li>{{user.username}}: {{message}}</li>
+      <li class="list-group-item" id="{{message}}">{{user.username}} sent you a song</li>
     {{/each}}
   </ul>
 </template>
