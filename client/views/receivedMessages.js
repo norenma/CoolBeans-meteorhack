@@ -1,9 +1,11 @@
 Template.receivedMessages.helpers({
   messages: function() {
-    return Messages.find();
+    if(Meteor.user()){
+      return Messages.find({_toId: Meteor.user().username});
+    }
   },
   user: function() {
-      console.log("this", this);
+      console.log(Meteor.user().username);
       return Meteor.users.findOne({_id: this._fromId});
   }
 });
