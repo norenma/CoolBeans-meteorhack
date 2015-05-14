@@ -3,14 +3,17 @@
 </head>
 
 <body>
-<h1>Welcome to Meteor!</h1>
+<h1>Welcome to Coolbeans!</h1>
 
-{{> hello}}
+{{> sendMessage}}
 
 {{> loginButtons}}
 </body>
 
-<template name="hello">
-    <button>Click Me</button>
-    <p>You've pressed the button {{counter}} times.</p>
+<template name="sendMessage">
+<form>
+    <textarea rows="10" cols="100" id="message"></textarea>
+    <input type="submit" value="Submit">
+</form>
+
 </template>
