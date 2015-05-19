@@ -8,18 +8,28 @@ Template.receivedMessages.helpers({
     if(Meteor.user()){
       return Meteor.users.findOne({_id: this._fromId});
     }
+  },
+  audio: function(){
+    var audio;
+    if(!audio){
+      audio = new Audio();
+    }
+    return audio;
   }
 });
 
+//TODO: Not best practise :(
+var audio = new Audio();
 Template.receivedMessages.events({
-
   'click li': function(event, instance){
     console.log(this.message);
     Meteor.call('hemtz', this.message, function(err, result){
-        var audio = new Audio()
+      if(audio.currentTime === 0 || audio.src !== result.data.preview_url || audio.paused){
         audio.src = result.data.preview_url
-        console.log(result.data.preview_url);//data.preview_url;
         audio.play();
+      }else{
+        audio.pause();
+      }
     });
   }
 });
