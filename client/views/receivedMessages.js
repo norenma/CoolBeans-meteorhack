@@ -24,13 +24,12 @@ Template.receivedMessages.events({
   'click li': function(event, instance){
     console.log(this.message);
     Meteor.call('hemtz', this.message, function(err, result){
-      if(audio.currentTime == 0){
+      if(audio.currentTime === 0 || audio.src !== result.data.preview_url || audio.paused){
         audio.src = result.data.preview_url
-        console.log(result.data.preview_url);
         audio.play();
+      }else{
+        audio.pause();
       }
-
-
     });
   }
 });
