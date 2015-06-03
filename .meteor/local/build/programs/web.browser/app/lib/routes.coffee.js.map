@@ -1,0 +1,2 @@
+)]}'
+{"version":3,"sources":["routes.coffee"],"names":[],"mappings":";AAAA,MAAM,CAAC,GAAP,CAAY;SAAM,IAAI,CAAC,KAAL,CAAW,OAAX,EAAoB;AAAA,IAClC,MAAM,GAD4B;GAApB,EAAN;AAAA,CAAZ","file":"/lib/routes.coffee.js","sourcesContent":["Router.map  () -> this.route 'index', {\n    path: '/'\n}\n\n"]}
